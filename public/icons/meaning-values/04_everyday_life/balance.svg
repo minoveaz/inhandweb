@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    .ih-p { stroke: var(--ih-icon-primary, #2638A5); }
+    .ih-a { stroke: var(--ih-icon-accent, #fc6c21); }
+    .ih-pf { fill: var(--ih-icon-primary, #2638A5); stroke: none; }
+    .ih-af { fill: var(--ih-icon-accent, #fc6c21); stroke: none; }
+  </style>
+  <ellipse class="ih-p" cx="12" cy="5.8" rx="2.6" ry="1.7"/>
+  <ellipse class="ih-p" cx="12" cy="11.0" rx="4.6" ry="2.2"/>
+  <ellipse class="ih-p" cx="12" cy="16.8" rx="6.2" ry="2.5"/>
+  <line class="ih-a" x1="10.0" y1="11.0" x2="14.0" y2="11.0"/>
+</svg>

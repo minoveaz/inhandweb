@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 738.7 747.5" width="739" height="748">
+  <g id="inhand-symbol">
+    <!-- Letter A -->
+    <path id="letter-a" fill="#2638a5" d="M 314.8,0 H 424.2 L 738.7,747.5 H 587.0 L 368.3,173.7 L 145.2,747.5 H 0 Z" />
+    <!-- Dot inside A (#fc6c21ff) -->
+    <circle id="dot" cx="365.3" cy="571.5" r="84.9" fill="#fc6c21" />
+  </g>
+</svg>

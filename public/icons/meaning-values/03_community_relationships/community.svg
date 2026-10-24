@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    .ih-p { stroke: var(--ih-icon-primary, #2638A5); }
+    .ih-a { stroke: var(--ih-icon-accent, #fc6c21); }
+    .ih-pf { fill: var(--ih-icon-primary, #2638A5); stroke: none; }
+    .ih-af { fill: var(--ih-icon-accent, #fc6c21); stroke: none; }
+  </style>
+  <ellipse class="ih-p" cx="12" cy="7.8" rx="2.2" ry="2.6"/>
+  <path class="ih-p" d="M 7.8 18.2 C 7.5 14.5 9.4 12.5 12 12.5 C 14.6 12.5 16.5 14.5 16.2 18.2"/>
+  <circle class="ih-p" cx="6.8" cy="10.2" r="1.8"/>
+  <path class="ih-p" d="M 3.5 18.5 C 3.5 15.2 5.0 13.8 7.6 13.8"/>
+  <circle class="ih-p" cx="17.2" cy="10.2" r="1.8"/>
+  <path class="ih-p" d="M 20.5 18.5 C 20.5 15.2 19.0 13.8 16.4 13.8"/>
+</svg>

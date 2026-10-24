@@ -1,0 +1,1065 @@
+[
+  {
+    "name": "Button",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "default",
+      "hover",
+      "pressed",
+      "focus",
+      "disabled",
+      "loading"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Link",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "default",
+      "hover",
+      "focus",
+      "visited"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "IconButton",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "default",
+      "hover",
+      "focus",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "ToggleButton",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "unpressed",
+      "pressed",
+      "focus",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "TextField",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "empty",
+      "filled",
+      "focus",
+      "error",
+      "disabled",
+      "readOnly"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Checkbox",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "unchecked",
+      "checked",
+      "indeterminate",
+      "focus",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "RadioGroup",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "unselected",
+      "selected",
+      "focus",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Switch",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "off",
+      "on",
+      "focus",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "FocusRing",
+    "priority": "P1",
+    "status": "proposed",
+    "states": [
+      "keyboard-focus"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Header",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "desktop",
+      "mobile"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "MobileNav",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "closed",
+      "open"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Breadcrumb",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "parent",
+      "current"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Tabs",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "selected",
+      "unselected",
+      "focus",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Footer",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "desktop",
+      "mobile"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Card",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "default",
+      "hover",
+      "focus",
+      "loading"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Badge",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "neutral",
+      "success",
+      "warning",
+      "error",
+      "info"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Tag",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "static",
+      "removable"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Avatar",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "image",
+      "initials",
+      "fallback"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Accordion",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "collapsed",
+      "expanded",
+      "focus",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Metadata",
+    "priority": "P2",
+    "status": "proposed",
+    "states": [
+      "default",
+      "missing"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Select",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "empty",
+      "selected",
+      "open",
+      "focus",
+      "error",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Combobox",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "empty",
+      "query",
+      "loading",
+      "results",
+      "no-results",
+      "selected",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "MultiSelect",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "empty",
+      "selected",
+      "open",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Textarea",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "empty",
+      "filled",
+      "focus",
+      "error",
+      "disabled",
+      "limit"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "DateField",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "empty",
+      "selected",
+      "invalid",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "FileUpload",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "empty",
+      "dragging",
+      "uploading",
+      "complete",
+      "error",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "FormField",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "default",
+      "required",
+      "error",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "SearchField",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "empty",
+      "query",
+      "loading",
+      "results",
+      "no-results",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "FilterChip",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "unselected",
+      "selected",
+      "removable",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "FilterPanel",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "closed",
+      "open",
+      "applied"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "SortSelect",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "default",
+      "selected"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "ResultCount",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "loading",
+      "results",
+      "empty"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Menu",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "closed",
+      "open",
+      "focus",
+      "disabled-item"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Tooltip",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "hidden",
+      "visible"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Popover",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "closed",
+      "open"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Modal",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "closed",
+      "open",
+      "busy",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Drawer",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "closed",
+      "open"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Alert",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "info",
+      "success",
+      "warning",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "InlineMessage",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "info",
+      "success",
+      "warning",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Toast",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "shown",
+      "dismissed"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "StatusBanner",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "info",
+      "warning",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Skeleton",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "loading"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Spinner",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "loading"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Progress",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "indeterminate",
+      "determinate",
+      "complete",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "EmptyState",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "first-use",
+      "no-results"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "ErrorState",
+    "priority": "P3",
+    "status": "proposed",
+    "states": [
+      "retryable",
+      "unavailable"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "DataTable",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "loading",
+      "data",
+      "selected",
+      "sorted",
+      "empty",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Pagination",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "first",
+      "middle",
+      "last",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Stepper",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "completed",
+      "current",
+      "pending",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Price",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "regular",
+      "discount",
+      "pending"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "Availability",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "available",
+      "low-stock",
+      "out-of-stock"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "QuantityInput",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "min",
+      "valid",
+      "max",
+      "error",
+      "disabled"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "VariantSelector",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "selected",
+      "unselected",
+      "unavailable"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "ProductActions",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "ready",
+      "loading",
+      "success",
+      "error",
+      "unavailable"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "CartItem",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "default",
+      "updating",
+      "removed",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "OrderSummary",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "partial",
+      "complete",
+      "loading",
+      "error"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  },
+  {
+    "name": "CheckoutSteps",
+    "priority": "P4",
+    "status": "proposed",
+    "states": [
+      "input",
+      "validation",
+      "processing",
+      "success",
+      "failure"
+    ],
+    "requirements": [
+      "semantic-tokens",
+      "keyboard",
+      "accessible-name",
+      "visible-focus",
+      "responsive",
+      "interaction-check"
+    ]
+  }
+]

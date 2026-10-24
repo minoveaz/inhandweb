@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <style>
+    .ih-p { stroke: var(--ih-icon-primary, #2638A5); }
+    .ih-a { stroke: var(--ih-icon-accent, #fc6c21); }
+    .ih-pf { fill: var(--ih-icon-primary, #2638A5); stroke: none; }
+    .ih-af { fill: var(--ih-icon-accent, #fc6c21); stroke: none; }
+  </style>
+  <circle class="ih-p" cx="8.5" cy="10.8" r="2.0"/>
+  <path class="ih-p" d="M 4.5 18.8 C 4.5 15.6 6.2 14.2 8.5 14.2 C 10.5 14.2 12.0 15.5 12.0 18.2"/>
+  <circle class="ih-p" cx="15.5" cy="10.8" r="2.0"/>
+  <path class="ih-p" d="M 12.0 18.2 C 12.0 15.5 13.5 14.2 15.5 14.2 C 17.8 14.2 19.5 15.6 19.5 18.8"/>
+  <line class="ih-a" x1="12" y1="3.5" x2="12" y2="7.5"/>
+  <line class="ih-a" x1="10" y1="5.5" x2="14" y2="5.5"/>
+</svg>

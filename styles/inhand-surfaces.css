@@ -1,0 +1,161 @@
+/* ==========================================================================
+   INHAND — 03. Graphic Elements, Gradients & Textures System (CSS / React)
+   ========================================================================== */
+
+:root {
+  /* Core Brand Palette */
+  --ih-blue-deep: #022E88;
+  --ih-blue: #2638A5;
+  --ih-blue-soft: #6B94D8;
+  --ih-blue-mist: #AFC8ED;
+
+  --ih-coral-vibrant: #FC6C21;
+  --ih-coral: #F1A280;
+  --ih-coral-soft: #FED5BB;
+
+  --ih-sand: #F3E7DE;
+  --ih-sand-warm: #E9D7C7;
+  --ih-sand-deep: #D9C3AE;
+  --ih-canvas: #E8DDC9;
+  --ih-ivory: #FAF4EF;
+  --ih-charcoal: #272A32;
+
+  /* 05. GRADIENTS & BACKGROUNDS */
+  /* 1. Blue Gradient — Depth and focus */
+  --ih-grad-blue:
+    radial-gradient(115% 110% at 12% 35%, #022E88 0%, #1F3EA3 42%, #6B94D8 82%, #B8CFF0 100%);
+
+  /* 2. Coral Gradient — Warmth and energy */
+  --ih-grad-coral:
+    linear-gradient(112deg, #FED5BB 0%, #F7AE88 46%, #FB8248 85%, #FC6C21 100%);
+
+  /* 3. Sand Gradient — Neutral and calm */
+  --ih-grad-sand:
+    linear-gradient(115deg, #F3E7DE 0%, #E8D5C4 52%, #D7C0AA 100%);
+
+  /* 4. Mixed Gradient — Modern and expressive (Mesh Gradient) */
+  --ih-grad-mixed:
+    radial-gradient(85% 85% at 38% 12%, rgba(38, 56, 165, 0.92) 0%, rgba(38, 56, 165, 0) 68%),
+    radial-gradient(90% 90% at 88% 78%, rgba(252, 108, 33, 0.95) 0%, rgba(252, 108, 33, 0) 70%),
+    radial-gradient(85% 85% at 8% 88%, #F3E7DE 0%, rgba(243, 231, 222, 0) 68%),
+    linear-gradient(135deg, #6B94D8 0%, #E6B5A6 52%, #FB8B5B 100%);
+
+  /* 5. Soft Background — Subtle texture */
+  --ih-grad-soft:
+    radial-gradient(90% 90% at 85% 88%, #FAF4EF 0%, #EFE7DF 55%, #E6DDD4 100%);
+
+  /* 04. GLOW ACCENT */
+  --ih-glow-coral:
+    radial-gradient(circle, rgba(252, 108, 33, 0.65) 0%, rgba(241, 162, 128, 0.32) 38%, rgba(243, 231, 222, 0) 70%);
+}
+
+/* ==========================================================================
+   05. GRADIENT UTILITY CLASSES
+   ========================================================================== */
+.ih-bg-blue-gradient { background: var(--ih-grad-blue); color: #FAF4EF; }
+.ih-bg-coral-gradient { background: var(--ih-grad-coral); color: var(--ih-blue); }
+.ih-bg-sand-gradient { background: var(--ih-grad-sand); color: var(--ih-blue); }
+.ih-bg-mixed-gradient { background: var(--ih-grad-mixed); color: #FAF4EF; }
+.ih-bg-soft { background: var(--ih-grad-soft); color: var(--ih-blue); }
+
+/* ==========================================================================
+   06. TEXTURE SURFACES (Zero external image dependencies — Pure CSS + SVG URI)
+   ========================================================================== */
+
+/* Base container for textured surfaces */
+.ih-texture-paper,
+.ih-texture-fabric,
+.ih-texture-grain,
+.ih-texture-light {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* 1. Paper Texture — Organic and tactile */
+.ih-texture-paper {
+  background-color: #EFE6DD;
+  background-image:
+    radial-gradient(100% 100% at 20% 20%, rgba(255, 255, 255, 0.45) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.045' numOctaves='5' seed='2' result='n'/%3E%3CfeDiffuseLighting in='n' lighting-color='%23f5ece2' surfaceScale='1.4'%3E%3CfeDistantLight azimuth='45' elevation='62'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)' opacity='0.38'/%3E%3C/svg%3E");
+}
+
+/* 2. Fabric Texture — Soft and artisanal (Woven Linen / Crudo Textil) */
+.ih-texture-fabric {
+  background-color: #C9B9A8;
+  background-image:
+    radial-gradient(85% 85% at 50% 45%, rgba(255, 248, 240, 0.22) 0%, rgba(70, 52, 36, 0.14) 100%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.07) 0px, rgba(255, 255, 255, 0.07) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(45, 35, 25, 0.06) 0px, rgba(45, 35, 25, 0.06) 1px, transparent 1px, transparent 3px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65 0.12' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 0 0.15 0 0 0 0.12 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+/* 3. Grain Texture — Modern and minimal */
+.ih-texture-grain {
+  background-color: #E2E3E5;
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.04) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.14'/%3E%3C/svg%3E");
+}
+
+/* Reusable Grain Overlay modifier (can be combined with any gradient!) */
+.ih-with-grain {
+  position: relative;
+}
+.ih-with-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='0.14'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  border-radius: inherit;
+}
+
+/* 4. Light Texture — Atmospheric sunbeam effect */
+.ih-texture-light {
+  background-color: #E8DFD7;
+  background-image:
+    linear-gradient(128deg,
+      rgba(225, 214, 204, 0.45) 0%,
+      rgba(225, 214, 204, 0.45) 26%,
+      rgba(255, 249, 242, 0.85) 38%,
+      rgba(255, 249, 242, 0.75) 48%,
+      rgba(222, 211, 201, 0.5) 60%,
+      rgba(235, 226, 218, 0.3) 100%
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.06' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23l)' opacity='0.06'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   03. PATTERNS (CSS Background Patterns)
+   ========================================================================== */
+
+/* 1. Dot Grid (Blue + Coral alternating dots) */
+.ih-pattern-dots {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='8' cy='8' r='2' fill='%232638A5'/%3E%3Ccircle cx='24' cy='8' r='2' fill='%23fc6c21'/%3E%3Ccircle cx='8' cy='24' r='2' fill='%23fc6c21'/%3E%3Ccircle cx='24' cy='24' r='2' fill='%232638A5'/%3E%3C/svg%3E");
+  background-size: 32px 32px;
+}
+
+/* 2. Arch Pattern (Inspired by hope and new beginnings) */
+.ih-pattern-arches {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='24' viewBox='0 0 28 24'%3E%3Cpath d='M 4 19 V 12 A 8 8 0 0 1 20 12 V 19' fill='none' stroke='%232638A5' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 28px 24px;
+}
+
+/* 3. Line Pattern (Diagonal rhythm) */
+.ih-pattern-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #2638A5 0px,
+    #2638A5 1.2px,
+    transparent 1.2px,
+    transparent 11px
+  );
+}
+
+/* 4. Symbol Pattern (4-ray cross/star grid) */
+.ih-pattern-symbols {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg stroke='%232638A5' stroke-width='1.4' stroke-linecap='round'%3E%3Cline x1='16' y1='9' x2='16' y2='13'/%3E%3Cline x1='16' y1='19' x2='16' y2='23'/%3E%3Cline x1='9' y1='16' x2='13' y2='16'/%3E%3Cline x1='19' y1='16' x2='23' y2='16'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='1.3' fill='%23fc6c21'/%3E%3C/svg%3E");
+  background-size: 32px 32px;
+}

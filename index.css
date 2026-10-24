@@ -1,0 +1,296 @@
+@import './styles/inhand-surfaces.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   INHAND Design System v0.1 — Semantic CSS Custom Properties (tokens.css)
+   Source: foundation/INHAND-design-system-kit/output/tokens.css
+   ========================================================================== */
+:root {
+  /* Brand & Action Colors */
+  --inhand-color-brand-primary: #092B8B;
+  --inhand-color-brand-dark: #09286F;
+  --inhand-color-action-primary: #092B8B;
+  --inhand-color-action-hover: #09286F;
+  --inhand-color-action-disabled: #E7E5DF;
+  --inhand-color-focus: #3459DF;
+
+  /* Surfaces */
+  --inhand-color-surface-canvas: #FBF6EE;
+  --inhand-color-surface-raised: #FFFAF3;
+  --inhand-color-surface-soft: #E4E8DF;
+
+  /* Typography Colors (Contrast: #092B8B on #FBF6EE = 11.3:1) */
+  --inhand-color-text-primary: #172C52;
+  --inhand-color-text-secondary: #646A78;
+  --inhand-color-text-onAction: #FBF6EE;
+
+  /* Borders */
+  --inhand-color-border-subtle: #DDDCD3;
+  --inhand-color-border-control: #7C8390;
+
+  /* Decorative Accents (Reserved for details & emphasis) */
+  --inhand-color-accent-decorative: #FF6638;
+  --inhand-color-accent-soft: #F5DFCD;
+
+  /* Semantic Status Colors */
+  --inhand-color-success-foreground: #216249;
+  --inhand-color-success-background: #E8F2EC;
+  --inhand-color-warning-foreground: #81510C;
+  --inhand-color-warning-background: #FFF1D8;
+  --inhand-color-danger-foreground: #B33836;
+  --inhand-color-danger-background: #FBECEA;
+
+  /* Spacing Scale (4px base) */
+  --inhand-space-1: 4px;
+  --inhand-space-2: 8px;
+  --inhand-space-3: 12px;
+  --inhand-space-4: 16px;
+  --inhand-space-5: 24px;
+  --inhand-space-6: 32px;
+  --inhand-space-7: 48px;
+  --inhand-space-8: 64px;
+
+  /* Border Radii */
+  --inhand-radius-control: 4px;
+  --inhand-radius-card: 8px;
+  --inhand-radius-dialog: 12px;
+  --inhand-radius-pill: 999px;
+
+  /* Typography Families, Sizes & Line Heights */
+  --inhand-font-display-family: Georgia, 'Space Grotesk', serif;
+  --inhand-font-display-size: 64px;
+  --inhand-font-display-lineHeight: 1.05;
+  --inhand-font-heading-family: Georgia, 'Space Grotesk', serif;
+  --inhand-font-heading-size: 40px;
+  --inhand-font-heading-lineHeight: 1.15;
+  --inhand-font-subheading-family: Georgia, 'Plus Jakarta Sans', serif;
+  --inhand-font-subheading-size: 28px;
+  --inhand-font-subheading-lineHeight: 1.2;
+  --inhand-font-body-family: 'Manrope', Arial, sans-serif;
+  --inhand-font-body-size: 16px;
+  --inhand-font-body-lineHeight: 1.5;
+  --inhand-font-label-family: 'Manrope', Arial, sans-serif;
+  --inhand-font-label-size: 14px;
+  --inhand-font-label-lineHeight: 1.4;
+  --inhand-font-helper-family: 'Manrope', Arial, sans-serif;
+  --inhand-font-helper-size: 12px;
+  --inhand-font-helper-lineHeight: 1.5;
+
+  /* Interactive Control Heights & Minimum Touch Target (Slide 09 & 28) */
+  --inhand-control-sm: 36px;
+  --inhand-control-md: 44px;
+  --inhand-control-lg: 52px;
+  --inhand-control-touchTarget: 44px;
+
+  /* Motion Durations (Slide 06) */
+  --inhand-motion-fast: 160ms;
+  --inhand-motion-panel: 240ms;
+
+  /* Breakpoints & Layout (Slide 05) */
+  --inhand-breakpoint-tablet: 768px;
+  --inhand-breakpoint-desktop: 1024px;
+  --inhand-layout-maxWidth: 1280px;
+  --inhand-layout-mobileGutter: 20px;
+  --inhand-layout-desktopGutter: 56px;
+
+  /* Elevation (Reserved for floating layers: menus, popovers, modals, drawers) */
+  --inhand-shadow-floating: 0 12px 32px rgba(9, 43, 139, 0.12);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--inhand-font-body-family);
+    font-size: var(--inhand-font-body-size);
+    line-height: var(--inhand-font-body-lineHeight);
+    color: var(--inhand-color-text-primary);
+    background-color: var(--inhand-color-surface-canvas);
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--inhand-font-heading-family);
+    letter-spacing: -0.02em;
+  }
+
+  /* Accessible Keyboard Focus Ring (Slide 09 & 28: visible #3459DF focus ring around interactive controls) */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [role='button']:focus-visible {
+    outline: 2px solid var(--inhand-color-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced Motion Preference (Slide 06 & 28: eliminates decorative shifts and animations) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Design System Layout Container (Max 1280px, 20px mobile gutter, 56px desktop gutter) */
+  .ih-container {
+    max-width: var(--inhand-layout-maxWidth);
+    padding-left: var(--inhand-layout-mobileGutter);
+    padding-right: var(--inhand-layout-mobileGutter);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    .ih-container {
+      padding-left: var(--inhand-layout-desktopGutter);
+      padding-right: var(--inhand-layout-desktopGutter);
+    }
+  }
+
+  /* Design System Typography Scale Classes (Slide 04) */
+  .ds-display {
+    font-family: var(--inhand-font-display-family);
+    font-size: clamp(2.5rem, 5vw, var(--inhand-font-display-size));
+    line-height: var(--inhand-font-display-lineHeight);
+    color: var(--inhand-color-brand-primary);
+  }
+
+  .ds-heading {
+    font-family: var(--inhand-font-heading-family);
+    font-size: clamp(1.85rem, 3.5vw, var(--inhand-font-heading-size));
+    line-height: var(--inhand-font-heading-lineHeight);
+    color: var(--inhand-color-brand-primary);
+  }
+
+  .ds-subheading {
+    font-family: var(--inhand-font-subheading-family);
+    font-size: clamp(1.35rem, 2.5vw, var(--inhand-font-subheading-size));
+    line-height: var(--inhand-font-subheading-lineHeight);
+    color: var(--inhand-color-brand-primary);
+  }
+
+  .ds-body {
+    font-family: var(--inhand-font-body-family);
+    font-size: var(--inhand-font-body-size);
+    line-height: var(--inhand-font-body-lineHeight);
+    color: var(--inhand-color-text-primary);
+  }
+
+  .ds-label {
+    font-family: var(--inhand-font-label-family);
+    font-size: var(--inhand-font-label-size);
+    line-height: var(--inhand-font-label-lineHeight);
+    font-weight: 600;
+    color: var(--inhand-color-text-primary);
+  }
+
+  .ds-helper {
+    font-family: var(--inhand-font-helper-family);
+    font-size: var(--inhand-font-helper-size);
+    line-height: var(--inhand-font-helper-lineHeight);
+    color: var(--inhand-color-text-secondary);
+  }
+
+  /* Design System Button Primitives (Slide 01, 06, 08, 29)
+     Primary action stays Brand Blue (#092B8B), hover (#09286F), control radius (4px), height md (44px) */
+  .ds-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--inhand-space-2);
+    min-height: var(--inhand-control-md);
+    padding: 0 var(--inhand-space-5);
+    border-radius: var(--inhand-radius-control);
+    background-color: var(--inhand-color-action-primary);
+    color: var(--inhand-color-text-onAction);
+    font-family: var(--inhand-font-label-family);
+    font-size: var(--inhand-font-label-size);
+    font-weight: 700;
+    transition: background-color var(--inhand-motion-fast) ease, border-color var(--inhand-motion-fast) ease;
+  }
+  .ds-btn-primary:hover:not(:disabled) {
+    background-color: var(--inhand-color-action-hover);
+  }
+  .ds-btn-primary:disabled {
+    background-color: var(--inhand-color-action-disabled);
+    color: var(--inhand-color-text-secondary);
+    cursor: not-allowed;
+  }
+
+  .ds-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--inhand-space-2);
+    min-height: var(--inhand-control-md);
+    padding: 0 var(--inhand-space-5);
+    border-radius: var(--inhand-radius-control);
+    background-color: var(--inhand-color-surface-raised);
+    color: var(--inhand-color-brand-primary);
+    border: 1px solid var(--inhand-color-brand-primary);
+    font-family: var(--inhand-font-label-family);
+    font-size: var(--inhand-font-label-size);
+    font-weight: 700;
+    transition: background-color var(--inhand-motion-fast) ease;
+  }
+  .ds-btn-secondary:hover:not(:disabled) {
+    background-color: var(--inhand-color-accent-soft);
+  }
+
+  /* Design System TextField Primitive (Slide 01, 06, 10)
+     Height 44px, surface.raised (#FFFAF3), border.control (#7C8390), radius.control (4px) */
+  .ds-input {
+    width: 100%;
+    min-height: var(--inhand-control-md);
+    padding: 0 var(--inhand-space-4);
+    border-radius: var(--inhand-radius-control);
+    background-color: var(--inhand-color-surface-raised);
+    border: 1px solid var(--inhand-color-border-control);
+    color: var(--inhand-color-text-primary);
+    font-size: var(--inhand-font-body-size);
+    transition: border-color var(--inhand-motion-fast) ease;
+  }
+  .ds-input::placeholder {
+    color: var(--inhand-color-text-secondary);
+  }
+  .ds-input:focus {
+    border-color: var(--inhand-color-focus);
+  }
+
+  /* Design System Card Primitive (Slide 06, 18)
+     surface.raised (#FFFAF3), 1px border.subtle (#DDDCD3), radius.card (8px) */
+  .ds-card {
+    background-color: var(--inhand-color-surface-raised);
+    border: 1px solid var(--inhand-color-border-subtle);
+    border-radius: var(--inhand-radius-card);
+  }
+
+  /* Editorial Surface Gradients aligned with Canvas #FBF6EE & Raised #FFFAF3 */
+  .ih-gradient-editorial {
+    background:
+      radial-gradient(80% 90% at 88% 18%, rgba(245, 223, 205, 0.55) 0%, rgba(245, 223, 205, 0) 65%),
+      radial-gradient(75% 85% at 10% 85%, rgba(228, 232, 223, 0.6) 0%, rgba(228, 232, 223, 0) 65%),
+      linear-gradient(180deg, #FFFAF3 0%, #FBF6EE 62%, #F5DFCD 100%);
+  }
+
+  .ih-gradient-warm-cream {
+    background: linear-gradient(125deg, #FFFAF3 0%, #FBF6EE 58%, #F5DFCD 100%);
+  }
+
+  .ih-gradient-cobalt {
+    background: linear-gradient(135deg, #092B8B 0%, #09286F 100%);
+  }
+}

@@ -1,0 +1,28 @@
+INHAND · Colección PNG en alta resolución
+=======================================
+
+32 ilustraciones independientes: la primera faith-pray-01 aprobada como ejemplo y 31 piezas adicionales.
+
+Contenido:
+- png/: 32 archivos PNG.
+- index.html: galería local con filtros y enlaces de descarga individual.
+- manifest.json: nombre, categoría, dimensiones, peso y SHA-256 de cada archivo.
+- prompts.json: instrucciones utilizadas para las 31 piezas nuevas.
+- faith-pray-01-prompt.txt: instrucciones del primer ejemplo.
+
+Abre index.html con un navegador. No hace falta instalar nada ni usar servidor.
+Para una web, copia los PNG que necesites a tu carpeta pública y úsalos con una etiqueta img.
+
+Resolución:
+Las escenas tienen aproximadamente 1329 × 1183 px.
+Los personajes y las variantes usan formato vertical de aproximadamente 1056 × 1488 px.
+Los objetos usan formato cuadrado de aproximadamente 1254 × 1254 px.
+Las composiciones panorámicas tienen alrededor de 1900–2000 px de ancho.
+Las dimensiones exactas están en manifest.json y en la galería.
+
+Método:
+Edición integrada image_gen a partir de la lámina original.
+Se conservó el estilo general y se reconstruyeron detalles para una presentación en mayor resolución.
+Son aproximaciones generativas; no son recuperaciones exactas de los archivos originales.
+Todos los archivos conservan fondo crema o el fondo de su escena. No tienen transparencia.
+No se incluyen los SVG de la prueba anterior.

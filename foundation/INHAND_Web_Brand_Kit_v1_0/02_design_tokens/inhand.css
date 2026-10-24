@@ -1,0 +1,15 @@
+/* INHAND brand tokens — implementation starter */
+:root {
+  --ih-blue: #2638A5; --ih-coral: #F1A280; --ih-sand: #F3E7DE;
+  --ih-sage: #88A79B; --ih-charcoal: #272A32; --ih-natural-canvas: #E8DDC9;
+  --ih-heading-font: "Space Grotesk", Arial, sans-serif;
+  --ih-subheading-font: "Plus Jakarta Sans", Arial, sans-serif;
+  --ih-body-font: "Manrope", Arial, sans-serif;
+  --ih-radius-sm: 8px; --ih-radius-md: 16px; --ih-radius-lg: 24px;
+  --ih-max-content: 1280px;
+}
+.ih-heading {font-family:var(--ih-heading-font);letter-spacing:-.035em;line-height:1.08;}
+.ih-body {font-family:var(--ih-body-font);line-height:1.55;}
+.ih-eyebrow {font-family:var(--ih-subheading-font);text-transform:uppercase;letter-spacing:.16em;}
+.ih-button {background:var(--ih-blue);color:white;border:0;border-radius:999px;padding:.85rem 1.4rem;}
+.ih-button:focus-visible {outline:3px solid var(--ih-coral);outline-offset:3px;}

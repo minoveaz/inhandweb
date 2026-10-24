@@ -1,0 +1,38 @@
+INHAND · Design system v0.1
+==========================
+
+Una propuesta visual de 30 diapositivas y un inventario de 57 componentes para construir la aplicación.
+
+Abrir:
+- index.html: presentación navegable sin instalación ni conexión.
+- output/INHAND-Design-System-v0.1.pptx: PowerPoint con texto, formas y tabla editables.
+- output/tokens.css y output/tokens.json: valores de diseño centralizados.
+- output/component-inventory.json: componentes, estados y prioridades.
+- slides.json: descripción de las láminas del visor.
+
+Navegación:
+Flechas izquierda y derecha o botones inferiores.
+Índice para saltar a un componente.
+F para pantalla completa.
+Inicio y Fin para ir a la primera o última lámina.
+
+Cobertura:
+Fundamentos de color, tipografía, espacio, retícula, superficies, movimiento, iconos e imágenes.
+Botones, enlaces, campos, selección, autocompletado, checkbox, radio, switch, fechas y archivos.
+Formularios, navegación, búsqueda, filtros, menús, tarjetas, etiquetas, avatares y acordeones.
+Tablas, paginación, pasos, avisos, ventanas, paneles, carga, vacíos y errores.
+Controles de producto, carrito y resumen de compra como propuesta para una futura tienda.
+Reglas de adaptación, accesibilidad, tokens y contratos de componentes.
+
+Alcance:
+Es documentación y diseño de componentes, no una biblioteca React ya implementada.
+La portada existente es la referencia visual. Los componentes adicionales son propuestas.
+Los precios y datos de ejemplo son ficticios.
+Los objetivos de accesibilidad no equivalen a una certificación: cada componente necesitará implementarse y comprobarse.
+Las ilustraciones son PNG generados anteriormente para el usuario.
+La presentación conserva Arial y Georgia. Las ilustraciones permanecen como imágenes raster.
+
+Para continuar:
+Construir primero los tokens y controles básicos.
+Cada componente debe consumir tokens y definir sus variantes, estados, semántica y comportamiento de teclado.
+El inventario propone un orden de implementación P1–P4.

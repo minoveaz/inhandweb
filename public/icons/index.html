@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Iconography System — INHAND</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ih-blue: #2638A5;
+      --ih-coral: #fc6c21;
+      --ih-sand: #F3E7DE;
+      --ih-charcoal: #272A32;
+      --ih-border: rgba(38, 56, 165, 0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: var(--ih-sand);
+      color: var(--ih-charcoal);
+      padding: 40px 32px 80px;
+    }
+    .sheet {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: #FDF9F6;
+      border: 1px solid var(--ih-border);
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: 0 10px 40px rgba(39, 42, 50, 0.05);
+    }
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--ih-blue);
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+    }
+    .brand-col {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .brand-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--ih-blue);
+      line-height: 1;
+    }
+    .brand-title-wrap h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ih-blue);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .brand-title-wrap p {
+      font-size: 14px;
+      color: var(--ih-charcoal);
+      opacity: 0.8;
+    }
+    .sheet-meta {
+      text-align: right;
+      font-size: 13px;
+      color: var(--ih-charcoal);
+      opacity: 0.7;
+      max-width: 320px;
+    }
+    .category-block {
+      margin-bottom: 40px;
+    }
+    .category-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(38, 56, 165, 0.1);
+      padding-bottom: 8px;
+    }
+    .category-header h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--ih-blue);
+      text-transform: uppercase;
+    }
+    .category-desc {
+      font-size: 13px;
+      color: var(--ih-charcoal);
+      opacity: 0.65;
+    }
+    .icons-row {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 1100px) {
+      .icons-row { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .icons-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    .icon-card {
+      background: #FFFFFF;
+      border: 1px solid var(--ih-border);
+      border-radius: 10px;
+      padding: 16px 8px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .icon-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(38, 56, 165, 0.1);
+      border-color: var(--ih-blue);
+    }
+    .icon-svg {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .icon-svg svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--ih-blue);
+    }
+    .icon-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ih-charcoal);
+      text-transform: capitalize;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--ih-blue);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="sheet-header">
+      <div class="brand-col">
+        <div class="brand-num">04.</div>
+        <div class="brand-title-wrap">
+          <h1>Iconography System</h1>
+          <p>A consistent icon set to communicate INHAND across digital touchpoints.</p>
+        </div>
+      </div>
+      <div class="sheet-meta">
+        <strong>INHAND</strong> · MADE TO MEAN MORE.<br>
+        Simple, meaningful and versatile icons inspired by faith, action and everyday life.
+      </div>
+    </div>
+
+    
+    <div class="category-block">
+      <div class="category-header">
+        <h3>01. CORE ICONS</h3>
+        <span class="category-desc">Essential icons for main navigation and key actions.</span>
+      </div>
+      <div class="icons-row">
+        
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="7" r="4" /><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" />
+</svg></div>
+          <div class="icon-label">account</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="7" r="4" /><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 3.5h3.2l2.4 11.5a1.5 1.5 0 0 0 1.5 1.2h9.4a1.5 1.5 0 0 0 1.5-1.2L21.5 6H5.5" />
+  <circle cx="9" cy="19.5" r="1.5" />
+  <circle cx="17" cy="19.5" r="1.5" />
+</svg></div>
+          <div class="icon-label">cart</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 3.5h3.2l2.4 11.5a1.5 1.5 0 0 0 1.5 1.2h9.4a1.5 1.5 0 0 0 1.5-1.2L21.5 6H5.5" />
+  <circle cx="9" cy="19.5" r="1.5" />
+  <circle cx="17" cy="19.5" r="1.5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" />
+</svg></div>
+          <div class="icon-label">close</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="4" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" />
+</svg></div>
+          <div class="icon-label">collections</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="4" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" /><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" /><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20.8l-1.4-1.3C5.5 15 2 11.9 2 8a5.5 5.5 0 0 1 9.5-3.8A5.5 5.5 0 0 1 21 8c0 3.9-3.5 7-8.6 11.5L12 20.8z" />
+</svg></div>
+          <div class="icon-label">favorites</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20.8l-1.4-1.3C5.5 15 2 11.9 2 8a5.5 5.5 0 0 1 9.5-3.8A5.5 5.5 0 0 1 21 8c0 3.9-3.5 7-8.6 11.5L12 20.8z" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 10.5L12 3l9 7.5" /><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" /><path d="M10 21v-6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v6" />
+</svg></div>
+          <div class="icon-label">home</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 10.5L12 3l9 7.5" /><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" /><path d="M10 21v-6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v6" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9" /><line x1="3" y1="12" x2="21" y2="12" /><path d="M12 3a13 13 0 0 1 4.5 9 13 13 0 0 1-4.5 9 13 13 0 0 1-4.5-9 13 13 0 0 1 4.5-9z" />
+</svg></div>
+          <div class="icon-label">language</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9" /><line x1="3" y1="12" x2="21" y2="12" /><path d="M12 3a13 13 0 0 1 4.5 9 13 13 0 0 1-4.5 9 13 13 0 0 1-4.5-9 13 13 0 0 1 4.5-9z" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="3.5" y1="7" x2="20.5" y2="7" /><line x1="3.5" y1="12" x2="20.5" y2="12" /><line x1="3.5" y1="17" x2="20.5" y2="17" />
+</svg></div>
+          <div class="icon-label">menu</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="3.5" y1="7" x2="20.5" y2="7" /><line x1="3.5" y1="12" x2="20.5" y2="12" /><line x1="3.5" y1="17" x2="20.5" y2="17" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="21" y2="21" />
+</svg></div>
+          <div class="icon-label">search</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="11" cy="11" r="7" /><line x1="16" y1="16" x2="21" y2="21" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M5 8.5h14l-1.2 11.5a1.5 1.5 0 0 1-1.5 1.4H7.7a1.5 1.5 0 0 1-1.5-1.4L5 8.5z" /><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5" />
+</svg></div>
+          <div class="icon-label">shop</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M5 8.5h14l-1.2 11.5a1.5 1.5 0 0 1-1.5 1.4H7.7a1.5 1.5 0 0 1-1.5-1.4L5 8.5z" /><path d="M9 8.5V6a3 3 0 0 1 6 0v2.5" />
+</svg></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="category-block">
+      <div class="category-header">
+        <h3>02. CATEGORY ICONS</h3>
+        <span class="category-desc">Product categories and thematic sections.</span>
+      </div>
+      <div class="icons-row">
+        
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3L2 8l10 5 10-5-10-5z" /><path d="M2 12l10 5 10-5" /><path d="M2 16l10 5 10-5" />
+</svg></div>
+          <div class="icon-label">collections</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3L2 8l10 5 10-5-10-5z" /><path d="M2 12l10 5 10-5" /><path d="M2 16l10 5 10-5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="7" r="3" /><path d="M7 19a5 5 0 0 1 10 0" /><circle cx="5.5" cy="9.5" r="2" /><path d="M1.5 19a4 4 0 0 1 4-3" /><circle cx="18.5" cy="9.5" r="2" /><path d="M18.5 16a4 4 0 0 1 4 3" />
+</svg></div>
+          <div class="icon-label">community</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="7" r="3" /><path d="M7 19a5 5 0 0 1 10 0" /><circle cx="5.5" cy="9.5" r="2" /><path d="M1.5 19a4 4 0 0 1 4-3" /><circle cx="18.5" cy="9.5" r="2" /><path d="M18.5 16a4 4 0 0 1 4 3" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21v-7" /><path d="M12 14c-4 0-7-2-7-6 4 0 7 2 7 6z" /><path d="M12 11c3-1 6-4 6-8-4 0-6 4-6 8z" />
+</svg></div>
+          <div class="icon-label">daily life</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21v-7" /><path d="M12 14c-4 0-7-2-7-6 4 0 7 2 7 6z" /><path d="M12 11c3-1 6-4 6-8-4 0-6 4-6 8z" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="12" y1="3" x2="12" y2="21" /><line x1="6" y1="8.5" x2="18" y2="8.5" />
+</svg></div>
+          <div class="icon-label">faith</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="12" y1="3" x2="12" y2="21" /><line x1="6" y1="8.5" x2="18" y2="8.5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2l2.4 2.1 3.2-.5 1.2 3 2.9 1.4-.4 3.2 2 2.5-2 2.5.4 3.2-2.9 1.4-1.2 3-3.2-.5L12 22l-2.4-1.4-3.2.5-1.2-3-2.9-1.4.4-3.2-2-2.5 2-2.5-.4-3.2 2.9-1.4 1.2-3 3.2.5z" /><polyline points="9 12 11 14 15 10" />
+</svg></div>
+          <div class="icon-label">featured</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2l2.4 2.1 3.2-.5 1.2 3 2.9 1.4-.4 3.2 2 2.5-2 2.5.4 3.2-2.9 1.4-1.2 3-3.2-.5L12 22l-2.4-1.4-3.2.5-1.2-3-2.9-1.4.4-3.2-2-2.5 2-2.5-.4-3.2 2.9-1.4 1.2-3 3.2.5z" /><polyline points="9 12 11 14 15 10" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3.5" y="9" width="17" height="12" rx="1.5" /><line x1="3.5" y1="13.5" x2="20.5" y2="13.5" /><line x1="12" y1="9" x2="12" y2="21" /><path d="M12 9c-2-2.5-4.5-2.5-4.5-.5S10 9 12 9zm0 0c2-2.5 4.5-2.5 4.5-.5S14 9 12 9z" />
+</svg></div>
+          <div class="icon-label">gifts</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3.5" y="9" width="17" height="12" rx="1.5" /><line x1="3.5" y1="13.5" x2="20.5" y2="13.5" /><line x1="12" y1="9" x2="12" y2="21" /><path d="M12 9c-2-2.5-4.5-2.5-4.5-.5S10 9 12 9zm0 0c2-2.5 4.5-2.5 4.5-.5S14 9 12 9z" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2C12 7.5 7.5 12 2 12c5.5 0 10 4.5 10 10 0-5.5 4.5-10 10-10-5.5 0-10-4.5-10-10z" />
+</svg></div>
+          <div class="icon-label">inspiration</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2C12 7.5 7.5 12 2 12c5.5 0 10 4.5 10 10 0-5.5 4.5-10 10-10-5.5 0-10-4.5-10-10z" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12,2.5 14.9,8.5 21.5,9.4 16.7,14 17.9,20.5 12,17.4 6.1,20.5 7.3,14 2.5,9.4 9.1,8.5" />
+</svg></div>
+          <div class="icon-label">new</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12,2.5 14.9,8.5 21.5,9.4 16.7,14 17.9,20.5 12,17.4 6.1,20.5 7.3,14 2.5,9.4 9.1,8.5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20.5 13.5L13.5 20.5a1.5 1.5 0 0 1-2.1 0l-7.9-7.9a1.5 1.5 0 0 1-.4-1.1V4.5A1.5 1.5 0 0 1 4.5 3h7a1.5 1.5 0 0 1 1.1.4l7.9 7.9a1.5 1.5 0 0 1 0 2.2z" /><circle cx="7.5" cy="7.5" r="1.5" fill="#2638A5" />
+</svg></div>
+          <div class="icon-label">offers</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20.5 13.5L13.5 20.5a1.5 1.5 0 0 1-2.1 0l-7.9-7.9a1.5 1.5 0 0 1-.4-1.1V4.5A1.5 1.5 0 0 1 4.5 3h7a1.5 1.5 0 0 1 1.1.4l7.9 7.9a1.5 1.5 0 0 1 0 2.2z" /><circle cx="7.5" cy="7.5" r="1.5" fill="#2638A5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 6c3-1.5 7-1.5 10 1 3-2.5 7-2.5 10-1v12c-3-1.5-7-1.5-10 1-3-2.5-7-2.5-10-1z" /><line x1="12" y1="7" x2="12" y2="19" />
+</svg></div>
+          <div class="icon-label">scripture</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 6c3-1.5 7-1.5 10 1 3-2.5 7-2.5 10-1v12c-3-1.5-7-1.5-10 1-3-2.5-7-2.5-10-1z" /><line x1="12" y1="7" x2="12" y2="19" />
+</svg></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="category-block">
+      <div class="category-header">
+        <h3>03. ACTION ICONS</h3>
+        <span class="category-desc">Common user actions and interface elements.</span>
+      </div>
+      <div class="icons-row">
+        
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+</svg></div>
+          <div class="icon-label">add</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M10 13a4.5 4.5 0 0 0 6.36 0l2.83-2.83a4.5 4.5 0 0 0-6.36-6.36l-1.42 1.41" /><path d="M14 11a4.5 4.5 0 0 0-6.36 0L4.81 13.83a4.5 4.5 0 0 0 6.36 6.36l1.42-1.41" />
+</svg></div>
+          <div class="icon-label">copy link</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M10 13a4.5 4.5 0 0 0 6.36 0l2.83-2.83a4.5 4.5 0 0 0-6.36-6.36l-1.42 1.41" /><path d="M14 11a4.5 4.5 0 0 0-6.36 0L4.81 13.83a4.5 4.5 0 0 0 6.36 6.36l1.42-1.41" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="3.5" y1="6" x2="20.5" y2="6" /><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" /><path d="M5.5 6l1 13.5a1.5 1.5 0 0 0 1.5 1.5h8a1.5 1.5 0 0 0 1.5-1.5l1-13.5" /><line x1="10" y1="10.5" x2="10" y2="16.5" /><line x1="14" y1="10.5" x2="14" y2="16.5" />
+</svg></div>
+          <div class="icon-label">delete</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="3.5" y1="6" x2="20.5" y2="6" /><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" /><path d="M5.5 6l1 13.5a1.5 1.5 0 0 0 1.5 1.5h8a1.5 1.5 0 0 0 1.5-1.5l1-13.5" /><line x1="10" y1="10.5" x2="10" y2="16.5" /><line x1="14" y1="10.5" x2="14" y2="16.5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 16V3m-5 8l5 5 5-5" /><path d="M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" />
+</svg></div>
+          <div class="icon-label">download</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 16V3m-5 8l5 5 5-5" /><path d="M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+</svg></div>
+          <div class="icon-label">edit</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="5" cy="12" r="1.5" fill="#2638A5" stroke="none" /><circle cx="12" cy="12" r="1.5" fill="#2638A5" stroke="none" /><circle cx="19" cy="12" r="1.5" fill="#2638A5" stroke="none" />
+</svg></div>
+          <div class="icon-label">more</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="5" cy="12" r="1.5" fill="#2638A5" stroke="none" /><circle cx="12" cy="12" r="1.5" fill="#2638A5" stroke="none" /><circle cx="19" cy="12" r="1.5" fill="#2638A5" stroke="none" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="5" y1="12" x2="19" y2="12" />
+</svg></div>
+          <div class="icon-label">remove</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="5" y1="12" x2="19" y2="12" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="18" cy="5" r="2.5" /><circle cx="6" cy="12" r="2.5" /><circle cx="18" cy="19" r="2.5" /><line x1="8.3" y1="10.9" x2="15.7" y2="6.6" /><line x1="8.3" y1="13.1" x2="15.7" y2="17.4" />
+</svg></div>
+          <div class="icon-label">share</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="18" cy="5" r="2.5" /><circle cx="6" cy="12" r="2.5" /><circle cx="18" cy="19" r="2.5" /><line x1="8.3" y1="10.9" x2="15.7" y2="6.6" /><line x1="8.3" y1="13.1" x2="15.7" y2="17.4" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3v13m-5-5l5-5 5 5" /><path d="M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" />
+</svg></div>
+          <div class="icon-label">upload</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3v13m-5-5l5-5 5 5" /><path d="M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z" /><circle cx="12" cy="12" r="3" />
+</svg></div>
+          <div class="icon-label">view</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z" /><circle cx="12" cy="12" r="3" />
+</svg></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="category-block">
+      <div class="category-header">
+        <h3>04. BENEFIT ICONS</h3>
+        <span class="category-desc">Key value propositions and customer information.</span>
+      </div>
+      <div class="icons-row">
+        
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9" /><circle cx="9" cy="10" r="1.2" fill="#2638A5" stroke="none" /><circle cx="15" cy="10" r="1.2" fill="#2638A5" stroke="none" /><path d="M8 14.5a5 5 0 0 0 8 0" />
+</svg></div>
+          <div class="icon-label">customer support</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9" /><circle cx="9" cy="10" r="1.2" fill="#2638A5" stroke="none" /><circle cx="15" cy="10" r="1.2" fill="#2638A5" stroke="none" /><path d="M8 14.5a5 5 0 0 0 8 0" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2.5L20 7v10l-8 4.5L4 17V7l8-4.5z" /><line x1="12" y1="12" x2="20" y2="7" /><line x1="12" y1="12" x2="4" y2="7" /><line x1="12" y1="12" x2="12" y2="21.5" />
+</svg></div>
+          <div class="icon-label">easy returns</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2.5L20 7v10l-8 4.5L4 17V7l8-4.5z" /><line x1="12" y1="12" x2="20" y2="7" /><line x1="12" y1="12" x2="4" y2="7" /><line x1="12" y1="12" x2="12" y2="21.5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 5h12v11H2z" /><path d="M14 8h4l3 3.5V16h-7V8z" /><circle cx="6" cy="18" r="2" fill="#FFFFFF" /><circle cx="17.5" cy="18" r="2" fill="#FFFFFF" /><line x1="8" y1="16" x2="15.5" y2="16" />
+</svg></div>
+          <div class="icon-label">free shipping</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 5h12v11H2z" /><path d="M14 8h4l3 3.5V16h-7V8z" /><circle cx="6" cy="18" r="2" fill="#FFFFFF" /><circle cx="17.5" cy="18" r="2" fill="#FFFFFF" /><line x1="8" y1="16" x2="15.5" y2="16" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2.5" y="5" width="19" height="14" rx="2" /><line x1="2.5" y1="9.5" x2="21.5" y2="9.5" /><line x1="6" y1="15" x2="10" y2="15" /><line x1="13" y1="15" x2="15" y2="15" />
+</svg></div>
+          <div class="icon-label">multiple methods</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="2.5" y="5" width="19" height="14" rx="2" /><line x1="2.5" y1="9.5" x2="21.5" y2="9.5" /><line x1="6" y1="15" x2="10" y2="15" /><line x1="13" y1="15" x2="15" y2="15" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2.5l2.2 1.8 2.8-.2 1.3 2.5 2.7 1-.3 2.8 1.9 2.1-1.9 2.1.3 2.8-2.7 1-1.3 2.5-2.8-.2L12 22.5l-2.2-1.8-2.8.2-1.3-2.5-2.7-1 .3-2.8-1.9-2.1 1.9-2.1-.3-2.8 2.7-1 1.3-2.5 2.8.2z" /><polyline points="9 12 11 14 15 10" />
+</svg></div>
+          <div class="icon-label">official product</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2.5l2.2 1.8 2.8-.2 1.3 2.5 2.7 1-.3 2.8 1.9 2.1-1.9 2.1.3 2.8-2.7 1-1.3 2.5-2.8-.2L12 22.5l-2.2-1.8-2.8.2-1.3-2.5-2.7-1 .3-2.8-1.9-2.1 1.9-2.1-.3-2.8 2.7-1 1.3-2.5 2.8.2z" /><polyline points="9 12 11 14 15 10" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="6,3.5 18,3.5 22,9 12,21.5 2,9" /><line x1="2" y1="9" x2="22" y2="9" /><line x1="7.5" y1="9" x2="12" y2="21.5" /><line x1="16.5" y1="9" x2="12" y2="21.5" /><line x1="12" y1="3.5" x2="7.5" y2="9" /><line x1="12" y1="3.5" x2="16.5" y2="9" />
+</svg></div>
+          <div class="icon-label">premium quality</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="6,3.5 18,3.5 22,9 12,21.5 2,9" /><line x1="2" y1="9" x2="22" y2="9" /><line x1="7.5" y1="9" x2="12" y2="21.5" /><line x1="16.5" y1="9" x2="12" y2="21.5" /><line x1="12" y1="3.5" x2="7.5" y2="9" /><line x1="12" y1="3.5" x2="16.5" y2="9" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21V12" /><path d="M12 15C8 15 5 12.5 5 9c4 0 7 2.5 7 6z" /><path d="M12 12c3-1 6-4 6-8-4 0-6 4-6 8z" />
+</svg></div>
+          <div class="icon-label">purpose driven</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21V12" /><path d="M12 15C8 15 5 12.5 5 9c4 0 7 2.5 7 6z" /><path d="M12 12c3-1 6-4 6-8-4 0-6 4-6 8z" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2.5L4 6v5.5c0 5.5 3.5 10 8 11 4.5-1 8-5.5 8-11V6l-8-3.5z" /><polyline points="9 11.5 11 13.5 15 9.5" />
+</svg></div>
+          <div class="icon-label">secure payment</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2.5L4 6v5.5c0 5.5 3.5 10 8 11 4.5-1 8-5.5 8-11V6l-8-3.5z" /><polyline points="9 11.5 11 13.5 15 9.5" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 21c0-7 4-13 11-17 3 4 5 9 3 13-2 4-6 5-11 5z" /><path d="M3 21c5-4 9-7 14-8" />
+</svg></div>
+          <div class="icon-label">sustainable</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 21c0-7 4-13 11-17 3 4 5 9 3 13-2 4-6 5-11 5z" /><path d="M3 21c5-4 9-7 14-8" />
+</svg></textarea>
+        </div>
+        <div class="icon-card" title="Click to copy SVG" onclick="copySvg(this)">
+          <div class="icon-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="12" y1="3" x2="12" y2="21" /><ellipse cx="12" cy="12" rx="4.5" ry="9" />
+</svg></div>
+          <div class="icon-label">worldwide</div>
+          <textarea class="svg-code" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2638A5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="12" y1="3" x2="12" y2="21" /><ellipse cx="12" cy="12" rx="4.5" ry="9" />
+</svg></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">SVG copiado al portapapeles</div>
+
+  <script>
+    function copySvg(el) {
+      const code = el.querySelector('.svg-code').value;
+      navigator.clipboard.writeText(code).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

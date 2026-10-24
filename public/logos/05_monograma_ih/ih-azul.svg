@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 152" role="img" aria-labelledby="title desc">
+  <title id="title">Isotipo IH de InHand</title>
+  <desc id="desc">Monograma geométrico IH en azul, con dos trazos verticales y una H estilizada de remate curvo.</desc>
+  <g fill="#2638A5" transform="translate(0 0)">
+    <path d="M10 10h17v132H10z"/>
+    <path d="M36 10h17v132H36z"/>
+    <path d="M116 10h9c5.523 0 10 4.477 10 10v122h-9c-5.523 0-10-4.477-10-10v-21c0-11.598-9.402-21-21-21H71c-2.761 0-5-2.239-5-5v-3c0-2.9 1.6-5.4 4.5-7.1 12.4-7.2 29.1-7.8 45.5 1.1V10z"/>
+  </g>
+</svg>
