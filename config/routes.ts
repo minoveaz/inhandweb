@@ -141,6 +141,86 @@ export const STATIC_ROUTES: Record<string, RouteDefinition> = {
     },
     indexable: false,
   },
+  login: {
+    key: 'login',
+    paths: {
+      es: '/login',
+      en: '/en/login',
+    },
+    title: {
+      es: 'Iniciar Sesión — Área de Clientes | INHAND',
+      en: 'Sign In — Customer Area | INHAND',
+    },
+    description: {
+      es: 'Accede a tu cuenta de INHAND para consultar tus pedidos, direcciones guardadas y piezas favoritas.',
+      en: 'Access your INHAND account to track orders, manage saved addresses, and view your saved items.',
+    },
+    indexable: false,
+  },
+  register: {
+    key: 'register',
+    paths: {
+      es: '/registro',
+      en: '/en/register',
+    },
+    title: {
+      es: 'Crear Cuenta — Únete a la Comunidad | INHAND',
+      en: 'Create Account — Join the Community | INHAND',
+    },
+    description: {
+      es: 'Crea tu cuenta en INHAND y disfruta de acceso anticipado a nuevos drops y gestión simplificada de pedidos.',
+      en: 'Create your INHAND account for early access to drops and effortless order tracking.',
+    },
+    indexable: false,
+  },
+  forgotPassword: {
+    key: 'forgotPassword',
+    paths: {
+      es: '/recuperar-password',
+      en: '/en/forgot-password',
+    },
+    title: {
+      es: 'Recuperar Contraseña | INHAND',
+      en: 'Reset Password | INHAND',
+    },
+    description: {
+      es: 'Restablece tu contraseña de forma segura para acceder a tu cuenta de INHAND.',
+      en: 'Securely reset your password to access your INHAND account.',
+    },
+    indexable: false,
+  },
+  account: {
+    key: 'account',
+    paths: {
+      es: '/cuenta',
+      en: '/en/account',
+    },
+    title: {
+      es: 'Mi Cuenta — Pedidos, Direcciones y Favoritos | INHAND',
+      en: 'My Account — Orders, Addresses & Wishlist | INHAND',
+    },
+    description: {
+      es: 'Gestiona tus pedidos en curso, libreta de direcciones, facturas fiscales y piezas guardadas en INHAND.',
+      en: 'Manage your active orders, address book, tax invoices, and saved items at INHAND.',
+    },
+    indexable: false,
+  },
+  trackOrder: {
+    key: 'trackOrder',
+    paths: {
+      es: '/rastreo-pedido',
+      en: '/en/track-order',
+    },
+    title: {
+      es: 'Localizar Pedido como Invitado | INHAND',
+      en: 'Track Order as Guest | INHAND',
+    },
+    description: {
+      es: 'Consulta el estado en tiempo real de tu pedido con tu correo y número de pedido sin necesidad de cuenta.',
+      en: 'Check the real-time status of your order with your email and order number without logging in.',
+    },
+    indexable: false,
+  },
 };
 
 export function getProductPath(locale: Locale, slug: string): string {

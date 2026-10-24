@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Product, CATEGORIES } from '../../config/products';
 import { useLocale } from '../../context/LocaleContext';
 import { useCart } from '../../context/CartContext';
+import { useAuth } from '../../context/AuthContext';
 import { getProductPath } from '../../config/routes';
 import { Card, Badge, Button, ToggleButton, Availability, Price } from '../ui';
 
@@ -20,8 +21,9 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { locale, t, formatPrice } = useLocale();
   const { addItem } = useCart();
+  const { isInWishlist, toggleWishlist } = useAuth();
   const [justAdded, setJustAdded] = useState(false);
-  const [favorited, setFavorited] = useState(false);
+  const favorited = isInWishlist(product.id);
 
   const productPath = getProductPath(locale, product.slug);
   const categoryObj = CATEGORIES.find((c) => c.slug === product.categorySlug);
@@ -70,7 +72,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="absolute top-3 right-3">
           <ToggleButton
             pressed={favorited}
-            onPressedChange={setFavorited}
+            onPressedChange={() => toggleWishlist(product.id)}
             compact
             label={
               locale === 'es'

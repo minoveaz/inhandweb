@@ -1,29 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useLocale } from '../../context/LocaleContext';
 import { useCart } from '../../context/CartContext';
+import { useAuth } from '../../context/AuthContext';
 import { STATIC_ROUTES } from '../../config/routes';
-import { IconButton, Button, Badge } from '../ui';
+import { IconButton, Button, Avatar } from '../ui';
 
 export const Navbar: React.FC = () => {
   const { locale, t, switchLocalePath } = useLocale();
   const { totalQuantity, openCart } = useCart();
+  const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const userDropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    setUserDropdownOpen(false);
   }, [location.pathname]);
+
+  // Handle outside click for user dropdown
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (userDropdownRef.current && !userDropdownRef.current.contains(e.target as Node)) {
+        setUserDropdownOpen(false);
+      }
+    };
+    if (userDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [userDropdownOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && mobileMenuOpen) {
-        setMobileMenuOpen(false);
+      if (e.key === 'Escape') {
+        if (mobileMenuOpen) setMobileMenuOpen(false);
+        if (userDropdownOpen) setUserDropdownOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [mobileMenuOpen]);
+  }, [mobileMenuOpen, userDropdownOpen]);
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -45,6 +66,8 @@ export const Navbar: React.FC = () => {
 
   const esPath = switchLocalePath('es');
   const enPath = switchLocalePath('en');
+  const loginPath = STATIC_ROUTES.login.paths[locale];
+  const accountPath = STATIC_ROUTES.account.paths[locale];
 
   return (
     <>
@@ -85,7 +108,7 @@ export const Navbar: React.FC = () => {
             />
           </Link>
 
-          {/* Desktop Navigation (Slide 15: Current destination has accessible style & Coral indicator) */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-9" aria-label="Main Navigation">
             {navLinks.map((item) => (
               <NavLink
@@ -104,8 +127,9 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Right utilities: Language Switcher + Cart Trigger */}
-          <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
+          {/* Right utilities: Language Switcher + Account User + Cart Trigger */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Language Switcher */}
             <div
               className="inline-flex items-center h-10 rounded-control border border-ih-border bg-ih-raised p-1 text-xs font-semibold tracking-wider"
               role="group"
@@ -133,18 +157,110 @@ export const Navbar: React.FC = () => {
               </Link>
             </div>
 
+            {/* Account Menu Trigger */}
+            <div className="relative" ref={userDropdownRef}>
+              {isAuthenticated && user ? (
+                <button
+                  type="button"
+                  onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                  aria-expanded={userDropdownOpen}
+                  aria-label={t.nav.account}
+                  className="h-10 px-2.5 rounded-control border border-ih-border bg-ih-raised hover:bg-ih-sand/50 flex items-center gap-2 transition duration-fast"
+                >
+                  <span className="w-6 h-6 rounded-full bg-ih-cobalt text-ih-on-action text-xs font-bold inline-flex items-center justify-center">
+                    {user.firstName[0]}
+                  </span>
+                  <span className="hidden md:inline text-xs font-bold text-ih-cobalt max-w-[90px] truncate">
+                    {user.firstName}
+                  </span>
+                  <span className="text-[10px] text-ih-muted">▾</span>
+                </button>
+              ) : (
+                <Link
+                  to={loginPath}
+                  aria-label={t.nav.signIn}
+                  className="h-10 px-3 rounded-control border border-ih-border bg-ih-raised hover:bg-ih-sand/50 flex items-center gap-1.5 text-xs font-bold text-ih-cobalt transition duration-fast"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-4 h-4 text-ih-cobalt"
+                  >
+                    <circle cx="12" cy="7" r="4" />
+                    <path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" />
+                  </svg>
+                  <span className="hidden sm:inline">{t.nav.signIn}</span>
+                </Link>
+              )}
+
+              {/* User Dropdown Menu */}
+              {isAuthenticated && user && userDropdownOpen && (
+                <div className="absolute right-0 top-full mt-2 w-56 rounded-dialog bg-ih-raised border border-ih-border shadow-floating p-2 z-50 animate-fadeIn">
+                  <div className="px-3 py-2 border-b border-ih-border mb-1">
+                    <p className="text-xs font-bold text-ih-cobalt truncate">
+                      {user.firstName} {user.lastName}
+                    </p>
+                    <p className="text-[11px] text-ih-muted truncate">{user.email}</p>
+                  </div>
+                  <Link
+                    to={accountPath}
+                    onClick={() => setUserDropdownOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-control text-xs font-medium text-ih-text hover:bg-ih-sand/50 hover:text-ih-cobalt"
+                  >
+                    <span>👤</span>
+                    <span>{t.nav.account}</span>
+                  </Link>
+                  <Link
+                    to={`${accountPath}?tab=orders`}
+                    onClick={() => setUserDropdownOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-control text-xs font-medium text-ih-text hover:bg-ih-sand/50 hover:text-ih-cobalt"
+                  >
+                    <span>📦</span>
+                    <span>{t.account.tabs.orders}</span>
+                  </Link>
+                  <Link
+                    to={`${accountPath}?tab=wishlist`}
+                    onClick={() => setUserDropdownOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-control text-xs font-medium text-ih-text hover:bg-ih-sand/50 hover:text-ih-cobalt"
+                  >
+                    <span>♥</span>
+                    <span>{t.account.tabs.wishlist}</span>
+                  </Link>
+                  <div className="pt-1 mt-1 border-t border-ih-border">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setUserDropdownOpen(false);
+                        logout();
+                      }}
+                      className="w-full text-left flex items-center gap-2 px-3 py-2 rounded-control text-xs font-medium text-ih-coral hover:bg-ih-coral/10"
+                    >
+                      <span>🚪</span>
+                      <span>{t.nav.signOut}</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Cart Button */}
             <Button
               variant="secondary"
               onClick={openCart}
               aria-label={`${t.nav.cart} (${totalQuantity})`}
-              className="!h-10 !min-h-[40px] !px-3.5 sm:!px-4 flex items-center gap-2 text-xs sm:text-sm font-bold whitespace-nowrap shrink-0"
+              className="!h-10 !min-h-[40px] !px-3 sm:!px-4 flex items-center gap-2 text-xs sm:text-sm font-bold whitespace-nowrap shrink-0"
             >
               <img
                 src="/icons/01_core/cart.svg"
                 alt=""
                 className="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0"
               />
-              <span className="leading-none">{t.nav.cart}</span>
+              <span className="hidden xs:inline leading-none">{t.nav.cart}</span>
               <span
                 className={`inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-pill text-[11px] font-bold shrink-0 transition duration-fast leading-none ${
                   totalQuantity > 0
@@ -159,7 +275,7 @@ export const Navbar: React.FC = () => {
         </div>
       </header>
 
-      {/* Mobile Full-Height Drawer (Slide 15 & 24: Escape closes, panel motion 240ms, shadow-floating) */}
+      {/* Mobile Full-Height Drawer */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex" role="dialog" aria-modal="true">
           <div
@@ -187,13 +303,44 @@ export const Navbar: React.FC = () => {
                 </IconButton>
               </div>
 
-              <nav className="mt-8 flex flex-col gap-4">
+              {/* User Bar in Mobile */}
+              <div className="mt-6 p-3 rounded-card bg-ih-raised border border-ih-border flex items-center justify-between">
+                {isAuthenticated && user ? (
+                  <div className="flex items-center gap-3">
+                    <span className="w-8 h-8 rounded-full bg-ih-cobalt text-ih-on-action text-xs font-bold inline-flex items-center justify-center">
+                      {user.firstName[0]}
+                    </span>
+                    <div>
+                      <p className="text-xs font-bold text-ih-cobalt">{user.firstName} {user.lastName}</p>
+                      <Link
+                        to={accountPath}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="text-[11px] text-ih-coral font-medium hover:underline"
+                      >
+                        {t.nav.account} →
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    to={loginPath}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full flex items-center justify-between text-xs font-bold text-ih-cobalt"
+                  >
+                    <span>👤 {t.nav.signIn} / {locale === 'es' ? 'Crear cuenta' : 'Register'}</span>
+                    <span>→</span>
+                  </Link>
+                )}
+              </div>
+
+              <nav className="mt-6 flex flex-col gap-3">
                 {navLinks.map((item) => (
                   <NavLink
                     key={item.to}
                     to={item.to}
+                    onClick={() => setMobileMenuOpen(false)}
                     className={({ isActive }) =>
-                      `text-xl font-display py-2 px-2 rounded-control flex items-center justify-between ${
+                      `text-lg font-display py-2 px-2 rounded-control flex items-center justify-between ${
                         isActive ? 'text-ih-cobalt font-bold bg-ih-sand/60' : 'text-ih-text'
                       }`
                     }

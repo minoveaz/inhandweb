@@ -71,6 +71,22 @@ export const Footer: React.FC = () => {
                   {t.nav.contact}
                 </Link>
               </li>
+              <li className="pt-2 border-t border-ih-border/60">
+                <Link
+                  to={STATIC_ROUTES.account.paths[locale]}
+                  className="text-ih-cobalt font-semibold hover:text-ih-coral transition"
+                >
+                  {t.nav.account}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={STATIC_ROUTES.trackOrder.paths[locale]}
+                  className="text-ih-muted hover:text-ih-cobalt transition text-xs"
+                >
+                  {t.auth.trackOrderHeading}
+                </Link>
+              </li>
             </ul>
           </div>
 

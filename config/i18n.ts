@@ -10,6 +10,9 @@ export const DICTIONARY: Record<Locale, {
     freeShippingBanner: string;
     openMenu: string;
     closeMenu: string;
+    account: string;
+    signIn: string;
+    signOut: string;
   };
   hero: {
     eyebrow: string;
@@ -230,6 +233,139 @@ export const DICTIONARY: Record<Locale, {
       a: string;
     }>;
   };
+  auth: {
+    loginTitle: string;
+    loginSubtitle: string;
+    registerTitle: string;
+    registerSubtitle: string;
+    forgotPasswordTitle: string;
+    forgotPasswordSubtitle: string;
+    emailLabel: string;
+    passwordLabel: string;
+    confirmPasswordLabel: string;
+    firstNameLabel: string;
+    lastNameLabel: string;
+    rememberMe: string;
+    forgotPasswordLink: string;
+    signInButton: string;
+    registerButton: string;
+    demoButton: string;
+    dontHaveAccount: string;
+    alreadyHaveAccount: string;
+    sendResetLink: string;
+    resetSuccess: string;
+    backToLogin: string;
+    termsNotice: string;
+    newsletterCheckbox: string;
+    trackOrderHeading: string;
+    trackOrderDesc: string;
+    trackOrderButton: string;
+    orderNumberPlaceholder: string;
+  };
+  account: {
+    title: string;
+    subtitle: string;
+    welcomeBack: string;
+    memberBadge: string;
+    tabs: {
+      overview: string;
+      orders: string;
+      addresses: string;
+      wishlist: string;
+      profile: string;
+    };
+    overview: {
+      recentOrderTitle: string;
+      viewAllOrders: string;
+      noActiveOrders: string;
+      savedAddressesTitle: string;
+      manageAddresses: string;
+      wishlistTitle: string;
+      viewWishlist: string;
+      communityBenefitTitle: string;
+      communityBenefitDesc: string;
+    };
+    orders: {
+      title: string;
+      subtitle: string;
+      emptyTitle: string;
+      emptyDesc: string;
+      exploreShop: string;
+      orderNumber: string;
+      orderDate: string;
+      status: string;
+      total: string;
+      viewDetails: string;
+      hideDetails: string;
+      downloadInvoice: string;
+      trackShipment: string;
+      repeatOrder: string;
+      statusConfirmed: string;
+      statusPreparing: string;
+      statusShipped: string;
+      statusDelivered: string;
+      statusCancelled: string;
+      deliveryTo: string;
+      itemsCount: string;
+    };
+    addresses: {
+      title: string;
+      subtitle: string;
+      addNew: string;
+      defaultShipping: string;
+      defaultBilling: string;
+      makeDefaultShipping: string;
+      edit: string;
+      delete: string;
+      noAddresses: string;
+      modalAddTitle: string;
+      modalEditTitle: string;
+      labelPlaceholder: string;
+      recipientName: string;
+      street: string;
+      apartment: string;
+      postalCode: string;
+      city: string;
+      province: string;
+      country: string;
+      phone: string;
+      saveAddress: string;
+      cancel: string;
+    };
+    wishlist: {
+      title: string;
+      subtitle: string;
+      emptyTitle: string;
+      emptyDesc: string;
+      exploreShop: string;
+      addToCart: string;
+      addedToCart: string;
+      shareList: string;
+      shareCopied: string;
+    };
+    profile: {
+      title: string;
+      subtitle: string;
+      personalInfo: string;
+      firstName: string;
+      lastName: string;
+      email: string;
+      phone: string;
+      preferredLanguage: string;
+      newsletterTitle: string;
+      newsletterDesc: string;
+      saveProfile: string;
+      savedSuccess: string;
+      securityTitle: string;
+      currentPassword: string;
+      newPassword: string;
+      updatePassword: string;
+      passwordUpdated: string;
+      dangerZone: string;
+      deleteAccount: string;
+      deleteWarning: string;
+    };
+  };
   footer: {
     tagline: string;
     navigate: string;
@@ -253,6 +389,9 @@ export const DICTIONARY: Record<Locale, {
       freeShippingBanner: 'FIRST DROP DISPONIBLE · ENVÍO GRATUITO EN ESPAÑA PENINSULAR DESDE 50 €',
       openMenu: 'Abrir menú',
       closeMenu: 'Cerrar menú',
+      account: 'Mi Cuenta',
+      signIn: 'Iniciar sesión',
+      signOut: 'Cerrar sesión',
     },
     hero: {
       eyebrow: 'FIRST DROP · COLECCIÓN 01',
@@ -604,6 +743,139 @@ export const DICTIONARY: Record<Locale, {
         },
       ],
     },
+    auth: {
+      loginTitle: 'Bienvenido de nuevo',
+      loginSubtitle: 'Accede a tu cuenta de INHAND para consultar tus pedidos, direcciones y piezas guardadas.',
+      registerTitle: 'Crea tu cuenta en INHAND',
+      registerSubtitle: 'Únete a nuestra comunidad y disfruta de acceso preferente a nuevos drops y gestión en 1 clic.',
+      forgotPasswordTitle: 'Recuperar contraseña',
+      forgotPasswordSubtitle: 'Introduce tu correo electrónico y te enviaremos un enlace seguro para restablecerla.',
+      emailLabel: 'Correo electrónico',
+      passwordLabel: 'Contraseña',
+      confirmPasswordLabel: 'Confirmar contraseña',
+      firstNameLabel: 'Nombre',
+      lastNameLabel: 'Apellidos',
+      rememberMe: 'Recordar sesión en este dispositivo',
+      forgotPasswordLink: '¿Olvidaste tu contraseña?',
+      signInButton: 'Iniciar sesión',
+      registerButton: 'Crear cuenta',
+      demoButton: 'Acceder con usuario demo',
+      dontHaveAccount: '¿Aún no tienes cuenta?',
+      alreadyHaveAccount: '¿Ya tienes cuenta?',
+      sendResetLink: 'Enviar enlace de recuperación',
+      resetSuccess: 'Te hemos enviado un enlace a tu correo. Revisa tu bandeja de entrada o spam.',
+      backToLogin: 'Volver a iniciar sesión',
+      termsNotice: 'Al registrarte, aceptas nuestras Condiciones de Venta y Política de Privacidad.',
+      newsletterCheckbox: 'Deseo recibir el mensaje dominical con reflexiones de diseño y novedades de drops.',
+      trackOrderHeading: '¿Compraste como invitado?',
+      trackOrderDesc: 'Introduce tu correo y el número de pedido para consultar su estado en tiempo real.',
+      trackOrderButton: 'Consultar estado del pedido',
+      orderNumberPlaceholder: 'Ej. IH-2026-8942',
+    },
+    account: {
+      title: 'Mi Cuenta',
+      subtitle: 'Gestiona tus pedidos, direcciones de entrega y piezas guardadas.',
+      welcomeBack: 'Bienvenido de nuevo',
+      memberBadge: 'Comunidad INHAND · Drop 01',
+      tabs: {
+        overview: 'Resumen',
+        orders: 'Mis Pedidos',
+        addresses: 'Direcciones',
+        wishlist: 'Favoritos',
+        profile: 'Perfil y Seguridad',
+      },
+      overview: {
+        recentOrderTitle: 'Último pedido en curso',
+        viewAllOrders: 'Ver todos los pedidos',
+        noActiveOrders: 'No tienes pedidos pendientes de entrega en este momento.',
+        savedAddressesTitle: 'Dirección de entrega predeterminada',
+        manageAddresses: 'Gestionar libreta',
+        wishlistTitle: 'Piezas guardadas',
+        viewWishlist: 'Ver mi lista',
+        communityBenefitTitle: 'Acceso Anticipado a Drops',
+        communityBenefitDesc: 'Como miembro de INHAND, recibirás notificación 24h antes de cada nuevo lanzamiento numerado.',
+      },
+      orders: {
+        title: 'Historial de Pedidos',
+        subtitle: 'Consulta el estado de preparación y envío de tus compras en INHAND.',
+        emptyTitle: 'Aún no has realizado ningún pedido',
+        emptyDesc: 'Explora nuestra primera colección de objetos con propósito para comenzar.',
+        exploreShop: 'Explorar tienda',
+        orderNumber: 'Pedido',
+        orderDate: 'Fecha',
+        status: 'Estado',
+        total: 'Total',
+        viewDetails: 'Ver desglose',
+        hideDetails: 'Ocultar desglose',
+        downloadInvoice: 'Descargar Factura (PDF)',
+        trackShipment: 'Seguir envío',
+        repeatOrder: 'Volver a pedir',
+        statusConfirmed: 'Confirmado',
+        statusPreparing: 'En taller',
+        statusShipped: 'Enviado',
+        statusDelivered: 'Entregado',
+        statusCancelled: 'Cancelado',
+        deliveryTo: 'Entrega en',
+        itemsCount: 'artículos',
+      },
+      addresses: {
+        title: 'Libreta de Direcciones',
+        subtitle: 'Guarda tus direcciones habituales para agilizar tus compras y envíos de regalo.',
+        addNew: 'Añadir nueva dirección',
+        defaultShipping: 'Envío predeterminado',
+        defaultBilling: 'Facturación predeterminada',
+        makeDefaultShipping: 'Marcar como predeterminada',
+        edit: 'Editar',
+        delete: 'Eliminar',
+        noAddresses: 'No tienes direcciones guardadas todavía.',
+        modalAddTitle: 'Añadir dirección',
+        modalEditTitle: 'Editar dirección',
+        labelPlaceholder: 'Ej: Casa, Estudio, Iglesia...',
+        recipientName: 'Nombre del destinatario',
+        street: 'Calle y número',
+        apartment: 'Piso, puerta, escalera (opcional)',
+        postalCode: 'Código postal',
+        city: 'Ciudad / Población',
+        province: 'Provincia',
+        country: 'País',
+        phone: 'Teléfono de contacto',
+        saveAddress: 'Guardar dirección',
+        cancel: 'Cancelar',
+      },
+      wishlist: {
+        title: 'Piezas Guardadas',
+        subtitle: 'Tus objetos favoritos de INHAND para meditar o regalar más adelante.',
+        emptyTitle: 'Tu lista de favoritos está vacía',
+        emptyDesc: 'Marca con un corazón las piezas que te inspiren en la tienda para guardarlas aquí.',
+        exploreShop: 'Ver catálogo',
+        addToCart: 'Añadir al carrito',
+        addedToCart: '¡Añadido!',
+        shareList: 'Compartir mi lista',
+        shareCopied: '¡Enlace copiado al portapapeles!',
+      },
+      profile: {
+        title: 'Datos Personales y Seguridad',
+        subtitle: 'Actualiza tu información de contacto y preferencias de cuenta.',
+        personalInfo: 'Información de Contacto',
+        firstName: 'Nombre',
+        lastName: 'Apellidos',
+        email: 'Correo electrónico',
+        phone: 'Teléfono',
+        preferredLanguage: 'Idioma preferido',
+        newsletterTitle: 'Mensaje Semanal y Drops',
+        newsletterDesc: 'Recibir reflexiones de diseño y aviso prioritario de nuevos drops.',
+        saveProfile: 'Guardar cambios',
+        savedSuccess: 'Tus datos se han actualizado correctamente.',
+        securityTitle: 'Seguridad y Contraseña',
+        currentPassword: 'Contraseña actual',
+        newPassword: 'Nueva contraseña',
+        updatePassword: 'Cambiar contraseña',
+        passwordUpdated: 'Contraseña actualizada con éxito.',
+        dangerZone: 'Zona de Privacidad y RGPD',
+        deleteAccount: 'Eliminar cuenta',
+        deleteWarning: 'Esta acción borrará permanentemente tus datos personales y libreta de direcciones.',
+      },
+    },
     footer: {
       tagline: 'Objetos cotidianos diseñados con fe, belleza y propósito. Inspirados en 2 Reyes 4:2.',
       navigate: 'Navegación',
@@ -627,6 +899,9 @@ export const DICTIONARY: Record<Locale, {
       freeShippingBanner: 'FIRST DROP LIVE · FREE SHIPPING IN MAINLAND SPAIN ON ORDERS OVER €50',
       openMenu: 'Open menu',
       closeMenu: 'Close menu',
+      account: 'My Account',
+      signIn: 'Sign In',
+      signOut: 'Log Out',
     },
     hero: {
       eyebrow: 'FIRST DROP · COLLECTION 01',
@@ -977,6 +1252,139 @@ export const DICTIONARY: Record<Locale, {
           a: 'Yes. You have 14 calendar days from delivery to request an exchange or return. Every item ships in a gift-ready collector box without pricing inside if you leave a gift note at checkout.',
         },
       ],
+    },
+    auth: {
+      loginTitle: 'Welcome Back',
+      loginSubtitle: 'Sign in to your INHAND account to view your orders, addresses, and saved items.',
+      registerTitle: 'Create your INHAND Account',
+      registerSubtitle: 'Join our community for early access to drops and effortless 1-click checkout.',
+      forgotPasswordTitle: 'Reset Password',
+      forgotPasswordSubtitle: 'Enter your email address and we will send you a secure link to reset it.',
+      emailLabel: 'Email Address',
+      passwordLabel: 'Password',
+      confirmPasswordLabel: 'Confirm Password',
+      firstNameLabel: 'First Name',
+      lastNameLabel: 'Last Name',
+      rememberMe: 'Remember me on this device',
+      forgotPasswordLink: 'Forgot your password?',
+      signInButton: 'Sign In',
+      registerButton: 'Create Account',
+      demoButton: 'Log in with Demo Account',
+      dontHaveAccount: 'Don’t have an account?',
+      alreadyHaveAccount: 'Already have an account?',
+      sendResetLink: 'Send Reset Link',
+      resetSuccess: 'We have sent a reset link to your email. Check your inbox or spam folder.',
+      backToLogin: 'Back to Sign In',
+      termsNotice: 'By creating an account, you agree to our Terms of Sale and Privacy Policy.',
+      newsletterCheckbox: 'I would like to receive the Sunday message with design reflections and drop updates.',
+      trackOrderHeading: 'Purchased as a guest?',
+      trackOrderDesc: 'Enter your email and order number to track its real-time shipping status.',
+      trackOrderButton: 'Check Order Status',
+      orderNumberPlaceholder: 'E.g. IH-2026-8942',
+    },
+    account: {
+      title: 'My Account',
+      subtitle: 'Manage your active orders, shipping addresses, and saved pieces.',
+      welcomeBack: 'Welcome back',
+      memberBadge: 'INHAND Community · Drop 01',
+      tabs: {
+        overview: 'Overview',
+        orders: 'My Orders',
+        addresses: 'Addresses',
+        wishlist: 'Wishlist',
+        profile: 'Profile & Security',
+      },
+      overview: {
+        recentOrderTitle: 'Active Order in Transit',
+        viewAllOrders: 'View all orders',
+        noActiveOrders: 'You have no active orders in transit right now.',
+        savedAddressesTitle: 'Default Shipping Address',
+        manageAddresses: 'Manage address book',
+        wishlistTitle: 'Saved Pieces',
+        viewWishlist: 'View my wishlist',
+        communityBenefitTitle: 'Early Drop Access',
+        communityBenefitDesc: 'As an INHAND member, you receive private notification 24h before each new numbered edition.',
+      },
+      orders: {
+        title: 'Order History',
+        subtitle: 'Track preparation and shipment for all your INHAND orders.',
+        emptyTitle: 'No orders placed yet',
+        emptyDesc: 'Explore our inaugural drop of purposeful objects to begin.',
+        exploreShop: 'Explore Shop',
+        orderNumber: 'Order',
+        orderDate: 'Date',
+        status: 'Status',
+        total: 'Total',
+        viewDetails: 'View breakdown',
+        hideDetails: 'Hide breakdown',
+        downloadInvoice: 'Download Invoice (PDF)',
+        trackShipment: 'Track shipment',
+        repeatOrder: 'Reorder items',
+        statusConfirmed: 'Confirmed',
+        statusPreparing: 'In Studio',
+        statusShipped: 'Shipped',
+        statusDelivered: 'Delivered',
+        statusCancelled: 'Cancelled',
+        deliveryTo: 'Delivery to',
+        itemsCount: 'items',
+      },
+      addresses: {
+        title: 'Address Book',
+        subtitle: 'Save frequent delivery addresses for quick orders and direct gifting.',
+        addNew: 'Add new address',
+        defaultShipping: 'Default Shipping',
+        defaultBilling: 'Default Billing',
+        makeDefaultShipping: 'Set as default shipping',
+        edit: 'Edit',
+        delete: 'Delete',
+        noAddresses: 'You have no saved addresses yet.',
+        modalAddTitle: 'Add Address',
+        modalEditTitle: 'Edit Address',
+        labelPlaceholder: 'E.g.: Home, Studio, Church...',
+        recipientName: 'Recipient Name',
+        street: 'Street & number',
+        apartment: 'Suite, flat, apartment (optional)',
+        postalCode: 'Postal code',
+        city: 'City',
+        province: 'Province / State',
+        country: 'Country',
+        phone: 'Contact Phone',
+        saveAddress: 'Save Address',
+        cancel: 'Cancel',
+      },
+      wishlist: {
+        title: 'Saved Pieces',
+        subtitle: 'Your favorite INHAND objects saved for reflection or upcoming gifts.',
+        emptyTitle: 'Your wishlist is empty',
+        emptyDesc: 'Tap the heart icon on any piece in the shop to save it here.',
+        exploreShop: 'Browse Catalog',
+        addToCart: 'Add to Cart',
+        addedToCart: 'Added!',
+        shareList: 'Share Wishlist',
+        shareCopied: 'Link copied to clipboard!',
+      },
+      profile: {
+        title: 'Profile & Security',
+        subtitle: 'Update your contact information and account preferences.',
+        personalInfo: 'Contact Information',
+        firstName: 'First Name',
+        lastName: 'Last Name',
+        email: 'Email Address',
+        phone: 'Phone',
+        preferredLanguage: 'Preferred Language',
+        newsletterTitle: 'Weekly Sunday Message & Drops',
+        newsletterDesc: 'Receive design reflections and priority drop notifications.',
+        saveProfile: 'Save Changes',
+        savedSuccess: 'Your profile has been updated successfully.',
+        securityTitle: 'Security & Password',
+        currentPassword: 'Current Password',
+        newPassword: 'New Password',
+        updatePassword: 'Change Password',
+        passwordUpdated: 'Password changed successfully.',
+        dangerZone: 'Privacy & GDPR Area',
+        deleteAccount: 'Delete Account',
+        deleteWarning: 'This action will permanently remove your personal data and address book.',
+      },
     },
     footer: {
       tagline: 'Everyday objects designed with faith, beauty, and purpose. Inspired by 2 Kings 4:2.',
