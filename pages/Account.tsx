@@ -229,106 +229,144 @@ export const Account: React.FC = () => {
   return (
     <div className="py-10 sm:py-14 md:py-16 bg-ih-cream">
       <div className="ih-container max-w-6xl mx-auto">
-        {/* Account Header Hero */}
-        <div className="bg-ih-raised border border-ih-border rounded-dialog p-6 sm:p-8 mb-8 shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="flex items-center gap-4 sm:gap-5">
-            <Avatar name={`${user.firstName} ${user.lastName}`} size="lg" />
-            <div>
-              <div className="flex items-center gap-2.5 flex-wrap">
-                <h1 className="text-2xl sm:text-3xl font-display font-light text-ih-cobalt">
-                  {user.firstName} {user.lastName}
-                </h1>
-                <Badge tone="accent" showSymbol={false}>
-                  {t.account.memberBadge}
-                </Badge>
+        {/* Account Header Hero with Integrated Underline Tabs (App Style) */}
+        <div className="bg-ih-raised border border-ih-border rounded-dialog mb-8 shadow-card overflow-hidden">
+          {/* User Profile Bar */}
+          <div className="p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="flex items-center gap-4 sm:gap-5">
+              <Avatar name={`${user.firstName} ${user.lastName}`} size="lg" />
+              <div>
+                <div className="flex items-center gap-2.5 flex-wrap">
+                  <h1 className="text-2xl sm:text-3xl font-display font-light text-ih-cobalt">
+                    {user.firstName} {user.lastName}
+                  </h1>
+                  <Badge tone="accent" showSymbol={false}>
+                    {t.account.memberBadge}
+                  </Badge>
+                </div>
+                <p className="text-xs sm:text-sm text-ih-muted mt-0.5">{user.email}</p>
               </div>
-              <p className="text-xs sm:text-sm text-ih-muted mt-0.5">{user.email}</p>
+            </div>
+
+            <div className="flex items-center gap-3 w-full md:w-auto">
+              <Link
+                to={STATIC_ROUTES.shop.paths[locale]}
+                className="flex-1 md:flex-initial"
+              >
+                <Button variant="secondary" size="sm" className="w-full text-xs font-bold uppercase tracking-wider">
+                  {t.account.orders.exploreShop}
+                </Button>
+              </Link>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={logout}
+                className="text-xs font-bold uppercase tracking-wider text-ih-muted hover:text-ih-coral"
+              >
+                {t.nav.signOut}
+              </Button>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 w-full md:w-auto">
-            <Link
-              to={STATIC_ROUTES.shop.paths[locale]}
-              className="flex-1 md:flex-initial"
+          {/* Underline Tabs Bar (App Style per user reference) */}
+          <div className="border-t border-ih-border bg-ih-raised px-4 sm:px-8 flex items-center gap-2 sm:gap-6 overflow-x-auto scrollbar-none">
+            {/* Overview / Resumen */}
+            <button
+              type="button"
+              onClick={() => handleTabChange('overview')}
+              className={`relative py-3.5 sm:py-4 px-2 sm:px-3 inline-flex items-center gap-2 text-sm transition-all duration-fast shrink-0 focus:outline-none ${
+                activeTab === 'overview'
+                  ? 'text-ih-coral font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-ih-coral'
+                  : 'text-ih-muted hover:text-ih-cobalt font-medium'
+              }`}
             >
-              <Button variant="secondary" size="sm" className="w-full text-xs font-bold uppercase tracking-wider">
-                {t.account.orders.exploreShop}
-              </Button>
-            </Link>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={logout}
-              className="text-xs font-bold uppercase tracking-wider text-ih-muted hover:text-ih-coral"
-            >
-              {t.nav.signOut}
-            </Button>
-          </div>
-        </div>
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>{t.account.tabs.overview}</span>
+            </button>
 
-        {/* Tab Navigation Pill Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none border-b border-ih-border">
-          <button
-            type="button"
-            onClick={() => handleTabChange('overview')}
-            className={`min-h-control-sm px-4 py-2 rounded-pill text-xs font-bold uppercase tracking-wider transition duration-fast shrink-0 ${
-              activeTab === 'overview'
-                ? 'bg-ih-cobalt text-ih-on-action shadow-sm'
-                : 'bg-ih-raised text-ih-muted hover:text-ih-cobalt border border-ih-border'
-            }`}
-          >
-            {t.account.tabs.overview}
-          </button>
-          <button
-            type="button"
-            onClick={() => handleTabChange('orders')}
-            className={`min-h-control-sm px-4 py-2 rounded-pill text-xs font-bold uppercase tracking-wider transition duration-fast shrink-0 flex items-center gap-2 ${
-              activeTab === 'orders'
-                ? 'bg-ih-cobalt text-ih-on-action shadow-sm'
-                : 'bg-ih-raised text-ih-muted hover:text-ih-cobalt border border-ih-border'
-            }`}
-          >
-            <span>{t.account.tabs.orders}</span>
-            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-ih-sand/80 text-ih-cobalt font-mono">
-              {orders.length}
-            </span>
-          </button>
-          <button
-            type="button"
-            onClick={() => handleTabChange('addresses')}
-            className={`min-h-control-sm px-4 py-2 rounded-pill text-xs font-bold uppercase tracking-wider transition duration-fast shrink-0 ${
-              activeTab === 'addresses'
-                ? 'bg-ih-cobalt text-ih-on-action shadow-sm'
-                : 'bg-ih-raised text-ih-muted hover:text-ih-cobalt border border-ih-border'
-            }`}
-          >
-            {t.account.tabs.addresses}
-          </button>
-          <button
-            type="button"
-            onClick={() => handleTabChange('wishlist')}
-            className={`min-h-control-sm px-4 py-2 rounded-pill text-xs font-bold uppercase tracking-wider transition duration-fast shrink-0 flex items-center gap-2 ${
-              activeTab === 'wishlist'
-                ? 'bg-ih-cobalt text-ih-on-action shadow-sm'
-                : 'bg-ih-raised text-ih-muted hover:text-ih-cobalt border border-ih-border'
-            }`}
-          >
-            <span>{t.account.tabs.wishlist}</span>
-            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-ih-sand/80 text-ih-cobalt font-mono">
-              {wishlist.length}
-            </span>
-          </button>
-          <button
-            type="button"
-            onClick={() => handleTabChange('profile')}
-            className={`min-h-control-sm px-4 py-2 rounded-pill text-xs font-bold uppercase tracking-wider transition duration-fast shrink-0 ${
-              activeTab === 'profile'
-                ? 'bg-ih-cobalt text-ih-on-action shadow-sm'
-                : 'bg-ih-raised text-ih-muted hover:text-ih-cobalt border border-ih-border'
-            }`}
-          >
-            {t.account.tabs.profile}
-          </button>
+            {/* Orders / Mis Pedidos */}
+            <button
+              type="button"
+              onClick={() => handleTabChange('orders')}
+              className={`relative py-3.5 sm:py-4 px-2 sm:px-3 inline-flex items-center gap-2 text-sm transition-all duration-fast shrink-0 focus:outline-none ${
+                activeTab === 'orders'
+                  ? 'text-ih-coral font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-ih-coral'
+                  : 'text-ih-muted hover:text-ih-cobalt font-medium'
+              }`}
+            >
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+              <span>{t.account.tabs.orders}</span>
+              {orders.length > 0 && (
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-ih-sand/80 text-ih-text font-semibold ml-0.5">
+                  {orders.length}
+                </span>
+              )}
+            </button>
+
+            {/* Addresses / Direcciones */}
+            <button
+              type="button"
+              onClick={() => handleTabChange('addresses')}
+              className={`relative py-3.5 sm:py-4 px-2 sm:px-3 inline-flex items-center gap-2 text-sm transition-all duration-fast shrink-0 focus:outline-none ${
+                activeTab === 'addresses'
+                  ? 'text-ih-coral font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-ih-coral'
+                  : 'text-ih-muted hover:text-ih-cobalt font-medium'
+              }`}
+            >
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>{t.account.tabs.addresses}</span>
+              {user.addresses.length > 0 && (
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-ih-sand/80 text-ih-text font-semibold ml-0.5">
+                  {user.addresses.length}
+                </span>
+              )}
+            </button>
+
+            {/* Wishlist / Favoritos */}
+            <button
+              type="button"
+              onClick={() => handleTabChange('wishlist')}
+              className={`relative py-3.5 sm:py-4 px-2 sm:px-3 inline-flex items-center gap-2 text-sm transition-all duration-fast shrink-0 focus:outline-none ${
+                activeTab === 'wishlist'
+                  ? 'text-ih-coral font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-ih-coral'
+                  : 'text-ih-muted hover:text-ih-cobalt font-medium'
+              }`}
+            >
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span>{t.account.tabs.wishlist}</span>
+              {wishlist.length > 0 && (
+                <span className="text-[11px] px-2 py-0.5 rounded-full bg-ih-sand/80 text-ih-text font-semibold ml-0.5">
+                  {wishlist.length}
+                </span>
+              )}
+            </button>
+
+            {/* Profile & Security / Perfil y Seguridad */}
+            <button
+              type="button"
+              onClick={() => handleTabChange('profile')}
+              className={`relative py-3.5 sm:py-4 px-2 sm:px-3 inline-flex items-center gap-2 text-sm transition-all duration-fast shrink-0 focus:outline-none ${
+                activeTab === 'profile'
+                  ? 'text-ih-coral font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-ih-coral'
+                  : 'text-ih-muted hover:text-ih-cobalt font-medium'
+              }`}
+            >
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>{t.account.tabs.profile}</span>
+            </button>
+          </div>
         </div>
 
         {/* TAB 1: OVERVIEW */}
